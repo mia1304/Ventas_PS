@@ -1,6 +1,13 @@
-<<<<<<< HEAD
+
+// Inicializa un arreglo vacío para almacenar los ítems del carrito
 let cart = [];
 
+/**
+ * Agrega un producto al carrito.
+ * @param {string} product - Nombre del producto.
+ * @param {string} size - Talla del producto.
+ * @returns {string} Mensaje de éxito o error.
+ */
 function addToCart(product, size) {
   // Verifica si el nombre del producto o la talla están vacíos o son inválidos
   if (!product || !size) {
@@ -12,6 +19,12 @@ function addToCart(product, size) {
   return 'Product added to cart'; // Mensaje de éxito
 }
 
+/**
+ * Elimina un producto del carrito.
+ * @param {string} product - Nombre del producto.
+ * @param {string} size - Talla del producto.
+ * @returns {string} Mensaje de éxito o error.
+ */
 function removeFromCart(product, size) {
   // Encuentra el índice del producto en el carrito que coincide con el nombre y la talla
   const index = cart.findIndex(item => item.product === product && item.size === size);
@@ -23,6 +36,10 @@ function removeFromCart(product, size) {
   return 'Product not found in cart'; // Mensaje de error si el producto no se encuentra
 }
 
+/**
+ * Procede al checkout.
+ * @returns {string} Mensaje de éxito o error.
+ */
 function proceedToCheckout() {
   // Verifica si el carrito está vacío antes de proceder al checkout
   if (cart.length === 0) {
@@ -34,47 +51,24 @@ function proceedToCheckout() {
   return 'Checkout successful'; // Mensaje de éxito
 }
 
+/**
+ * Obtiene todos los ítems del carrito.
+ * @returns {Array} Arreglo de ítems en el carrito.
+ */
 function getCartItems() {
   // Devuelve el arreglo del carrito
-=======
-// src/cart.js
-
-let cart = [];
-
-function addToCart(product, size) {
-  cart.push({ product, size });
-  return 'Product added to cart';
-}
-
-function removeFromCart(product, size) {
-  const index = cart.findIndex(item => item.product === product && item.size === size);
-  if (index !== -1) {
-    cart.splice(index, 1);
-    return 'Product removed from cart';
-  }
-  return 'Product not found in cart'; // Puedes manejar el caso en el que el producto no se encuentra
-}
-
-function proceedToCheckout() {
-  cart = []; // Vaciar el carrito
-  return 'Checkout successful';
-}
-
-function getCartItems() {
->>>>>>> 1ecd58c5451cd352fe307ed55576bace15517c13
   return cart;
 }
 
+/**
+ * Obtiene la cantidad de ítems en el carrito.
+ * @returns {number} Cantidad de ítems en el carrito.
+ */
 function getCartQuantity() {
-<<<<<<< HEAD
   // Devuelve la longitud del arreglo del carrito
   return cart.length;
 }
 
 // Exporta las funciones para que puedan ser utilizadas en otros archivos
-=======
-  return cart.length;
-}
-
->>>>>>> 1ecd58c5451cd352fe307ed55576bace15517c13
 module.exports = { addToCart, removeFromCart, proceedToCheckout, getCartItems, getCartQuantity };
+
